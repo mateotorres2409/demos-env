@@ -6,6 +6,7 @@ environment: "prod"
 image:
   repository: mateotorres2409/mateotorres2409
   tag: demo-nodejs-0.0.7
+  tag: demo-nodejs-0.0.7
   pullPolicy: IfNotPresent
 
 imagePullSecrets:
@@ -59,4 +60,7 @@ ingress:
   host: demo-nodejs.k8s.mateo.local
   secretName: demo-nodejs.k8s.mateo.local-tls-ingress
 
+
+# Trazabilidad (inyectado desde CI con --set gitCommit=$GITHUB_SHA)
+gitCommit: 3a0d719e0d4d8deb289874f051d75c677e5ded54
 gitCommit: 3a0d719e0d4d8deb289874f051d75c677e5ded54
