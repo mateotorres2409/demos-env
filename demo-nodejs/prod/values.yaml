@@ -1,10 +1,26 @@
 image:
   repository: mateotorres2409/mateotorres2409
   tag: demo-nodejs-0.0.3
+imagePullSecrets:
+  - name: dockerhub-secret
+appPort: 3000
+env:
+  static:
+    NODE_ENV: "production"
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 80
+deploymentStrategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxSurge: 1
+    maxUnavailable: 0
+
 service:
   type: ClusterIP
   port: 80
-  targetPort: 3000
   protocol: TCP
   name: http
 ingress:
@@ -20,3 +36,4 @@ ingress:
     cert-manager.io/subject-locality: "BOGOTA D.C."
   className: nginx
   host: demo-nodejs.k8s.mateo.local
+
