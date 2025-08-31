@@ -61,6 +61,5 @@ ingress:
 
 gitCommit: 3a0d719e0d4d8deb289874f051d75c677e5ded54
 
-otel:
-  inject: true
-  instrumentation: "inject-nodejs"
+podAnnotations:
+  instrumentation.opentelemetry.io/inject-nodejs: "true"
