@@ -50,7 +50,7 @@ ingress:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
     nginx.ingress.kubernetes.io/enable-opentelemetry: "true"
     nginx.ingress.kubernetes.io/otlp-collector-host: "console-otel-collector.demos.svc.cluster.local"
-    nginx.ingress.kubernetes.io/otlp-collector-port: 4317
+    nginx.ingress.kubernetes.io/otlp-collector-port: "4317"
     nginx.ingress.kubernetes.io/opentelemetry-operation-name: "demo-nodejs"
     cert-manager.io/cluster-issuer: k8s.mateo.local-ca
     cert-manager.io/common-name: demo-nodejs.k8s.mateo.local
