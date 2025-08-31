@@ -1,0 +1,22 @@
+image:
+  repository: mateotorres2409/mateotorres2409
+  tag: demo-nodejs-0.0.3
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 3000
+  protocol: TCP
+  name: http
+ingress:
+  enabled: true
+  annotations: 
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    cert-manager.io/cluster-issuer: k8s.mateo.local-ca
+    cert-manager.io/common-name: demo-nodejs.k8s.mateo.local
+    cert-manager.io/subject-organizations: "mateo.local"
+    cert-manager.io/subject-organizationalunits: "MATEO TORRES ARREDONDO"
+    cert-manager.io/subject-country: "CO"
+    cert-manager.io/subject-province: "CUNDINAMARCA"
+    cert-manager.io/subject-locality: "BOGOTA D.C."
+  className: nginx
+  host: demo-nodejs.k8s.mateo.local

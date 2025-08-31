@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demo-nodejs
+  namespace: argocd
+spec:
+  project: demos.k8s.mateo.local
+  sources:
+    - repoURL: git@github.com:mateotorres2409/demos-app.git
+      targetRevision: main
+      path: demo-nodejs/helm/demo-nodejs
+      helm:
+        valueFiles:
+          - $values/demo-nodejs/prod/values.yaml
+    - repoURL: git@github.com:mateotorres2409/demos-env.git
+      targetRevision: main
+      ref: values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: demos
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
