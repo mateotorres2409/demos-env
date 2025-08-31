@@ -5,7 +5,7 @@ environment: "prod"
 
 image:
   repository: mateotorres2409/mateotorres2409
-  tag: demo-nodejs-0.0.6
+  tag: demo-nodejs-0.0.7
   pullPolicy: IfNotPresent
 
 imagePullSecrets:
@@ -61,4 +61,4 @@ ingress:
 
 
 # Trazabilidad (inyectado desde CI con --set gitCommit=$GITHUB_SHA)
-gitCommit: "0"
+gitCommit: 3a0d719e0d4d8deb289874f051d75c677e5ded54
