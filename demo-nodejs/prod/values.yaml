@@ -36,4 +36,5 @@ ingress:
     cert-manager.io/subject-locality: "BOGOTA D.C."
   className: nginx
   host: demo-nodejs.k8s.mateo.local
+  secretName: demo-nodejs.k8s.mateo.local-tls-ingress
 
