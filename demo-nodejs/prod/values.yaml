@@ -5,7 +5,7 @@ environment: "prod"
 
 image:
   repository: mateotorres2409/mateotorres2409
-  tag: demo-nodejs-0.0.7
+  tag: demo-nodejs-0.0.8
   pullPolicy: IfNotPresent
 
 imagePullSecrets:
@@ -61,7 +61,7 @@ ingress:
   host: demo-nodejs.k8s.mateo.local
   secretName: demo-nodejs.k8s.mateo.local-tls-ingress
 
-gitCommit: 3a0d719e0d4d8deb289874f051d75c677e5ded54
+gitCommit: 73804f5b2fd744633544a543de9e7d1161e883f8
 
 podAnnotations:
   instrumentation.opentelemetry.io/inject-nodejs: "true"
