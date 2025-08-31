@@ -59,6 +59,4 @@ ingress:
   host: demo-nodejs.k8s.mateo.local
   secretName: demo-nodejs.k8s.mateo.local-tls-ingress
 
-
-# Trazabilidad (inyectado desde CI con --set gitCommit=$GITHUB_SHA)
 gitCommit: "0"
