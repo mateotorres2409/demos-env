@@ -60,3 +60,7 @@ ingress:
   secretName: demo-nodejs.k8s.mateo.local-tls-ingress
 
 gitCommit: 3a0d719e0d4d8deb289874f051d75c677e5ded54
+
+otel:
+  inject: true
+  instrumentation: "inject-nodejs"
