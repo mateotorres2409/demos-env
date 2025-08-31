@@ -26,6 +26,8 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
   #targetMemoryUtilizationPercentage: 75
 
+#replicaCount: 1
+
 podAnnotations: {}
 podLabels: {}
 
