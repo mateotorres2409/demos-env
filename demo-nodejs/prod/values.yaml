@@ -1,6 +1,8 @@
 nameOverride: ""
 fullnameOverride: ""
 
+environment: "prod"
+
 image:
   repository: mateotorres2409/mateotorres2409
   tag: demo-nodejs-0.0.3
@@ -57,4 +59,4 @@ ingress:
 
 
 # Trazabilidad (inyectado desde CI con --set gitCommit=$GITHUB_SHA)
-gitCommit: ""
+gitCommit: "0"
