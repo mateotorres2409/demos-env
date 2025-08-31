@@ -5,7 +5,7 @@ environment: "prod"
 
 image:
   repository: mateotorres2409/mateotorres2409
-  tag: demo-nodejs-0.0.6
+  tag: demo-nodejs-0.0.7
   pullPolicy: IfNotPresent
 
 imagePullSecrets:
@@ -59,4 +59,4 @@ ingress:
   host: demo-nodejs.k8s.mateo.local
   secretName: demo-nodejs.k8s.mateo.local-tls-ingress
 
-gitCommit: "0"
+gitCommit: 3a0d719e0d4d8deb289874f051d75c677e5ded54
