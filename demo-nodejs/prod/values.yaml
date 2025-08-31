@@ -5,7 +5,7 @@ environment: "prod"
 
 image:
   repository: mateotorres2409/mateotorres2409
-  tag: demo-nodejs-0.0.3
+  tag: 
   pullPolicy: IfNotPresent
 
 imagePullSecrets:
