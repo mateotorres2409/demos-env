@@ -1,0 +1,70 @@
+nameOverride: ""
+fullnameOverride: ""
+
+environment: "prod"
+
+image:
+  repository: mateotorres2409/mateotorres2409
+  tag: demo-python-0.0.0
+  pullPolicy: IfNotPresent
+
+configmap:
+  NODE_API_URL: "http://demo-nodejs/uuid"
+
+imagePullSecrets:
+  - name: dockerhub-secret
+
+appPort: 8000
+
+env:
+  static:
+    NODE_ENV: "production"
+  fromConfigMap: []
+  fromSecret: []
+
+autoscaling:
+  enabled: false
+  minReplicas: 2
+  maxReplicas: 4
+  targetCPUUtilizationPercentage: 80
+  #targetMemoryUtilizationPercentage: 75
+
+replicaCount: 2
+
+podAnnotations: {}
+podLabels: {}
+
+deploymentStrategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxSurge: 25%
+    maxUnavailable: 0
+
+revisionHistoryLimit: 3
+
+service:
+  type: ClusterIP
+  port: 80
+  protocol: TCP
+  name: http
+ingress:
+  enabled: true
+  annotations: 
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    nginx.ingress.kubernetes.io/enable-opentelemetry: "true"
+    nginx.ingress.kubernetes.io/opentelemetry-operation-name: "demo-python"
+    cert-manager.io/cluster-issuer: k8s.mateo.local-ca
+    cert-manager.io/common-name: demo-python.k8s.mateo.local
+    cert-manager.io/subject-organizations: "mateo.local"
+    cert-manager.io/subject-organizationalunits: "MATEO TORRES ARREDONDO"
+    cert-manager.io/subject-country: "CO"
+    cert-manager.io/subject-province: "CUNDINAMARCA"
+    cert-manager.io/subject-locality: "BOGOTA D.C."
+  className: nginx
+  host: demo-python.k8s.mateo.local
+  secretName: demo-python.k8s.mateo.local-tls-ingress
+
+gitCommit: 3a0d719e0d4d8deb289874f051d75c677e5ded54
+
+podAnnotations:
+  instrumentation.opentelemetry.io/inject-python: "true"

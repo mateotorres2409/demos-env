@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: demo-nodejs
+  name: demo-python
   namespace: argocd
 spec:
   project: demos.k8s.mateo.local
   sources:
     - repoURL: git@github.com:mateotorres2409/demos-app.git
       targetRevision: main
-      path: demo-nodejs/helm/demo-nodejs
+      path: demo-python/helm/demo-python
       helm:
         valueFiles:
-          - $values/demo-nodejs/prod/values.yaml
+          - $values/demo-python/prod/values.yaml
     - repoURL: git@github.com:mateotorres2409/demos-env.git
       targetRevision: main
       ref: values
