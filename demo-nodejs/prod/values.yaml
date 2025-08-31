@@ -33,6 +33,8 @@ deploymentStrategy:
     maxSurge: 25%
     maxUnavailable: 0
 
+revisionHistoryLimit: 3
+
 service:
   type: ClusterIP
   port: 80
