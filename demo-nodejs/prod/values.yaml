@@ -1,21 +1,36 @@
+nameOverride: ""
+fullnameOverride: ""
+
 image:
   repository: mateotorres2409/mateotorres2409
   tag: demo-nodejs-0.0.3
+  pullPolicy: IfNotPresent
+
 imagePullSecrets:
   - name: dockerhub-secret
+
 appPort: 3000
+
 env:
   static:
     NODE_ENV: "production"
+  fromConfigMap: []
+  fromSecret: []
+
 autoscaling:
   enabled: true
   minReplicas: 1
   maxReplicas: 3
   targetCPUUtilizationPercentage: 80
+  #targetMemoryUtilizationPercentage: 75
+
+podAnnotations: {}
+podLabels: {}
+
 deploymentStrategy:
   type: RollingUpdate
   rollingUpdate:
-    maxSurge: 1
+    maxSurge: 25%
     maxUnavailable: 0
 
 service:
@@ -38,3 +53,6 @@ ingress:
   host: demo-nodejs.k8s.mateo.local
   secretName: demo-nodejs.k8s.mateo.local-tls-ingress
 
+
+# Trazabilidad (inyectado desde CI con --set gitCommit=$GITHUB_SHA)
+gitCommit: ""
