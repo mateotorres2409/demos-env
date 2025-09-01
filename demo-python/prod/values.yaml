@@ -68,3 +68,4 @@ gitCommit: 3a0d719e0d4d8deb289874f051d75c677e5ded54
 
 podAnnotations:
   instrumentation.opentelemetry.io/inject-python: "true"
+  instrumentation.opentelemetry.io/instrumentation-resource: "python-instrumentation"
