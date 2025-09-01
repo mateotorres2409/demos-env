@@ -65,4 +65,3 @@ gitCommit: 73804f5b2fd744633544a543de9e7d1161e883f8
 
 podAnnotations:
   instrumentation.opentelemetry.io/inject-nodejs: "true"
-  instrumentation.opentelemetry.io/instrumentation-resource: "nodejs-instrumentation"
