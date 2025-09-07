@@ -8,6 +8,14 @@ image:
   tag: demo-nodejs-0.0.8
   pullPolicy: IfNotPresent
 
+resources:
+  limits:
+    cpu: "0.1"
+    memory: "128Mi"
+  requests:
+    cpu: "0.02"
+    memory: "80Mi"
+
 imagePullSecrets:
   - name: dockerhub-secret
 
