@@ -5,7 +5,7 @@ environment: "prod"
 
 image:
   repository: mateotorres2409/mateotorres2409
-  tag: demo-nodejs-0.0.8
+  tag: demo-nodejs-0.0.11
   pullPolicy: IfNotPresent
 
 resources:
@@ -28,11 +28,18 @@ env:
   fromSecret: []
 
 autoscaling:
-  enabled: true
+  enabled: false
   minReplicas: 2
   maxReplicas: 4
   targetCPUUtilizationPercentage: 80
   #targetMemoryUtilizationPercentage: 75
+
+scaledobject:
+  enabled: true
+  minReplicaCount: 2
+  maxReplicaCount: 4
+  cpuUtilizationPercentage: 50
+  memoryUtilizationPercentage: 50
 
 replicaCount: 2
 
@@ -69,7 +76,7 @@ ingress:
   host: demo-nodejs.k8s.mateo.local
   secretName: demo-nodejs.k8s.mateo.local-tls-ingress
 
-gitCommit: 73804f5b2fd744633544a543de9e7d1161e883f8
+gitCommit: 17bef6beee2766e79d30c99093a2a46108801214
 
 podAnnotations:
   instrumentation.opentelemetry.io/inject-nodejs: "true"
