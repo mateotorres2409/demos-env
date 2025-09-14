@@ -28,11 +28,18 @@ env:
   fromSecret: []
 
 autoscaling:
-  enabled: true
+  enabled: false
   minReplicas: 2
   maxReplicas: 4
   targetCPUUtilizationPercentage: 80
   #targetMemoryUtilizationPercentage: 75
+
+scaledobject:
+  enabled: true
+  minReplicaCount: 2
+  maxReplicaCount: 4
+  cpuUtilizationPercentage: 50
+  memoryUtilizationPercentage: 50
 
 replicaCount: 2
 
