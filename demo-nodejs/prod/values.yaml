@@ -36,7 +36,7 @@ autoscaling:
 
 scaledobject:
   enabled: true
-  minReplicaCount: 2
+  minReplicaCount: 1
   maxReplicaCount: 4
   cpuUtilizationPercentage: 80
   memoryUtilizationPercentage: 80
