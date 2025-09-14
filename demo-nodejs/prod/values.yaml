@@ -80,3 +80,7 @@ gitCommit: 17bef6beee2766e79d30c99093a2a46108801214
 
 podAnnotations:
   instrumentation.opentelemetry.io/inject-nodejs: "true"
+
+configmap:
+  OTEL_EXPORTER_OTLP_ENDPOINT: "grpc://otel-collector-opentelemetry-collector:4317"
+  PORT: 3000
