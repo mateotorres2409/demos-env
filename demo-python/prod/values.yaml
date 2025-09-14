@@ -5,7 +5,7 @@ environment: "prod"
 
 image:
   repository: mateotorres2409/mateotorres2409
-  tag: demo-python-0.0.10
+  tag: demo-python-0.0.11
   pullPolicy: IfNotPresent
 
 resources:
@@ -72,7 +72,7 @@ ingress:
   host: demo-python.k8s.mateo.local
   secretName: demo-python.k8s.mateo.local-tls-ingress
 
-gitCommit: 1db351d07357b1c6c0aa83d2b26c8aaaf23705c5
+gitCommit: 17bef6beee2766e79d30c99093a2a46108801214
 
 podAnnotations:
   instrumentation.opentelemetry.io/inject-python: "true"
