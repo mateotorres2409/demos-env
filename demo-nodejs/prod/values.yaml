@@ -11,7 +11,7 @@ image:
 resources:
   limits:
     cpu: "0.1"
-    memory: "128Mi"
+    memory: "256Mi"
   requests:
     cpu: "0.02"
     memory: "80Mi"
@@ -38,8 +38,8 @@ scaledobject:
   enabled: true
   minReplicaCount: 2
   maxReplicaCount: 4
-  cpuUtilizationPercentage: 50
-  memoryUtilizationPercentage: 50
+  cpuUtilizationPercentage: 80
+  memoryUtilizationPercentage: 80
 
 replicaCount: 2
 
