@@ -5,7 +5,7 @@ environment: "prod"
 
 image:
   repository: mateotorres2409/mateotorres2409
-  tag: demo-nodejs-0.0.13
+  tag: demo-nodejs-0.0.14
   pullPolicy: IfNotPresent
 
 resources:
@@ -76,11 +76,11 @@ ingress:
   host: demo-nodejs.k8s.mateo.local
   secretName: demo-nodejs.k8s.mateo.local-tls-ingress
 
-gitCommit: 16df13e641dcdb695c3d4721dcfbaadbdf0f68e9
+gitCommit: 318234026ed8e393a06254ba2763e01611fea3ac
 
 podAnnotations:
   instrumentation.opentelemetry.io/inject-nodejs: "true"
 
 configmap:
-  OTEL_EXPORTER_OTLP_ENDPOINT: "grpc://otel-collector-opentelemetry-collector:4317"
+  OTEL_EXPORTER_OTLP_GRPC_ENDPOINT: "grpc://otel-collector-opentelemetry-collector:4317"
   PORT: 3000
