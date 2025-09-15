@@ -40,9 +40,9 @@ scaledobject:
         serverAddress: https://prometheus-prod-56-prod-us-east-2.grafana.net/api/prom
         authModes: "basic"
         metricName: request_counter_total
-        threshold: "10"
+        threshold: "10.0"
         query: |
-          avg(rate(request_counter_total{action_type="uuid", k8s_namespace_name="demos", k8s_deployment_name="demo-nodejs"}[2m]))
+          sum(rate(request_counter_total{action_type="uuid", k8s_namespace_name="demos", k8s_deployment_name="demo-nodejs"}[2m]))
       authenticationRef:
         name: grafana-prom-auth
 
