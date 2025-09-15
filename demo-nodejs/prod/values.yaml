@@ -42,7 +42,7 @@ scaledobject:
         metricName: request_counter_total
         threshold: "10"
         query: |
-          rate(request_counter_total{action_type="uuid", k8s_namespace_name="demos", k8s_deployment_name="demo-nodejs"}[2m])
+          sum(rate(request_counter_total{action_type="uuid", k8s_namespace_name="demos", k8s_deployment_name="demo-nodejs"}[2m]))
       authenticationRef:
         name: grafana-prom-auth
 
