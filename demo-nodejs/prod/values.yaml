@@ -27,21 +27,25 @@ env:
   fromConfigMap: []
   fromSecret: []
 
-autoscaling:
-  enabled: false
-  minReplicas: 2
-  maxReplicas: 4
-  targetCPUUtilizationPercentage: 80
-  #targetMemoryUtilizationPercentage: 75
-
 scaledobject:
   enabled: true
-  minReplicaCount: 1
-  maxReplicaCount: 4
-  cpuUtilizationPercentage: 80
-  memoryUtilizationPercentage: 80
+  spec:
+    minReplicaCount: 1
+    maxReplicaCount: 5
+    pollingInterval: 30
+    cooldownPeriod:  150
+    triggers:
+    - type: prometheus
+      metadata:
+        serverAddress: https://prometheus-prod-56-prod-us-east-2.grafana.net/api/prom
+        metricName: request_counter_total
+        threshold: "10"
+        query: |
+          rate(request_counter_total{action_type="uuid", k8s_namespace_name="demos", k8s_deployment_name="demo-nodejs"}[2m])
+      authenticationRef:
+        name: grafana-prom-auth
 
-replicaCount: 2
+replicaCount: 1
 
 podAnnotations: {}
 podLabels: {}
