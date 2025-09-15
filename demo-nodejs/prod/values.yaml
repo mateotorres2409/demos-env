@@ -38,6 +38,7 @@ scaledobject:
     - type: prometheus
       metadata:
         serverAddress: https://prometheus-prod-56-prod-us-east-2.grafana.net/api/prom
+        authModes: "basic"
         metricName: request_counter_total
         threshold: "10"
         query: |
